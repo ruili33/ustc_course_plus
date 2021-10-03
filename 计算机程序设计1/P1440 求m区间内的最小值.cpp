@@ -6,14 +6,14 @@ int main() {
     int m,n;
     cin>>n>>m;
     for(int i=0;i<n;i++) cin>>a[i];
-    // 实现单调队列
+    // 瀹炵幇鍗曡皟闃熷垪
     deque<int> dq;
 
     for(int i = 0; i < n; i++) {
 	if(i>=1) while(!dq.empty() && dq.back() > a[i-1]) {
             dq.pop_back();
         }
-        // 当前元素入队
+        // 褰撳墠鍏冪礌鍏ラ槦
         if(i>=1) dq.push_back(a[i-1]);
         if(i >= m) {
             cout << dq.front() << " "<<endl;

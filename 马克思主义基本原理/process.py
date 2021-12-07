@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import glob
 import os
+exit() #防止误点击
 def transform(filename):
     src=cv2.imread(filename)
     hsv = cv2.cvtColor(src, cv2.COLOR_BGR2HSV)
@@ -46,7 +47,7 @@ def transform(filename):
     transMat=cv2.getPerspectiveTransform(srcPoints, dstPoints)
     processed=cv2.warpPerspective(src,transMat,(src.shape[1],src.shape[0]))
     cv2.imwrite(filename,processed)
-paths=glob.glob(os.path.join('.\\2021.9.7\\','*.jpg'))
+paths=glob.glob(os.path.join('.\\2021.11.16\\','*.jpg'))
 for path in paths:
     transform(path)
 
